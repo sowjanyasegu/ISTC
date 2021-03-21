@@ -1,0 +1,608 @@
+ {
+  "swagger": "2.0",
+  "info": {
+    "description": "Swagger Specialty Tea Traceability",
+    "version": "1.0.0",
+    "title": "Swagger Specialty Tea Traceability",
+
+    "contact": {
+      "email": ""
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "184.105.118.134:3000",
+  "basePath": "/istc",
+
+  "schemes": ["http"],
+  "paths": {
+    "/createTeaLot": {
+      "post": {
+        "summary": "Create Tea Lot",
+        "description": "Create Tea Lot",
+        "operationId": "createTeaLot",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Lot object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaLot"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/updateTeaLot": {
+      "post": {
+        "summary": "Update Tea Lot",
+        "description": "Update Tea Lot",
+        "operationId": "updateTeaLot",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Lot object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaLot"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/createTeaPacket": {
+      "post": {
+        "summary": "Create Tea Packet",
+        "description": "Create Tea Packet",
+        "operationId": "createTeaPacket",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Packet object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaPacket"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/updateTeaPacket": {
+      "post": {
+        "summary": "Update Tea Packet",
+        "description": "Update Tea Packet",
+        "operationId": "updateTeaPacket",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Packet object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaPacket"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+	"/initiateLabTest": {
+      "post": {
+        "summary": "initiateLabTest",
+        "description": "initiateLabTest",
+        "operationId": "initiateLabTest",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Lab object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LabObj"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/updateLabResult": {
+      "post": {
+        "summary": "Update Lab Result",
+        "description": "update Lab Result",
+        "operationId": "update Lab Result",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "LabResult object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/LabResultObj"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/initiateTeaTaste": {
+      "post": {
+        "summary": "initiateTeaTaste",
+        "description": "initiateTeaTaste",
+        "operationId": "initiateTeaTaste",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Taste object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaTasteObj"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/updateTeaTaste": {
+      "post": {
+        "summary": "updateTeaTaste",
+        "description": "updateTeaTaste",
+        "operationId": "updateTeaTaste",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Taste Result object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaTasteResultObj"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },	
+    "/getTeaLot": {
+      "post": {
+        "summary": "Get Tea Lot",
+        "description": "Get Tea Lot",
+        "operationId": "getTeaLot",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Lot ID object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaLotID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaLot"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/getTeaLotHistory": {
+      "post": {
+        "summary": "Get Tea Lot History",
+        "description": "Get Tea Lot History",
+        "operationId": "getTeaLotHistory",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Lot ID object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaLotID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaLot"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/getTeaPacket": {
+      "post": {
+        "summary": "Get Tea Packet",
+        "description": "Get Tea Packet",
+        "operationId": "getTeaPacket",
+        "consumes": ["application/json"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Packet ID object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaPacketID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaPacket"
+              }
+            }
+          },
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/getTeaPacketHistory": {
+      "post": {
+        "summary": "Get Tea Packet History",
+        "description": "Get Tea Packet History",
+        "operationId": "getTeaPacketHistory",
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Tea Packet ID object",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeaPacketID"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaPacket"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/queryAllTeaLots": {
+      "get": {
+        "summary": "queryAllTeaLots",
+        "description": "queryAllTeaLots",
+        "operationId": "queryAllTeaLots",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaLot"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    },
+    "/queryAllTeaPackets": {
+      "get": {
+        "summary": "queryAllTeaPackets",
+        "description": "queryAllTeaPackets",
+        "operationId": "queryAllTeaPackets",
+        "produces": ["application/json"],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "items": {
+                "$ref": "#/definitions/TeaPacket"
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "TeaLot": {
+      "type": "object",
+      "properties": {
+        "teaLotId": {
+          "type": "string",
+          "description": "Tea Lot Id"
+        },
+        "teaVariant": {
+          "type": "string",
+          "description": "teaVariant"
+        },
+        "origin": {
+          "type": "string",
+          "description": "Origin"
+        },
+        "season": {
+          "type": "string",
+          "description": "season"
+        },
+        "teaEstate": {
+          "type": "string",
+          "description": "Tea Estate"
+        },
+        "teaMaster": {
+          "type": "string",
+          "description": "Tea Master"
+        },
+        "make": {
+          "type": "string",
+          "description": "make"
+        },
+        "leafType": {
+          "type": "string",
+          "description": "Leaf Type"
+        },
+        "madeTeaName": {
+          "type": "string",
+          "description": "Made Tea Name"
+        },
+        "soilType": {
+          "type": "string",
+          "description": "soilType"
+        },
+        "characteristics": {
+          "type": "string",
+          "description": "characteristics"
+        },
+        "teaTasteNotes": {
+          "type": "string",
+          "description": "teaTasteNotes"
+        },
+        "healthAttributes": {
+          "type": "string",
+          "description": "healthAttributes"
+        },
+        "certified": {
+          "type": "string",
+          "description": "certified"
+        },
+        "award": {
+          "type": "string",
+          "description": "award"
+        },
+        "lotNumber": {
+          "type": "string",
+          "description": "Lot Number"
+        },
+        "teaTaster": {
+          "type": "string",
+          "description": "Tea Taster"
+        },
+        "lotStatus": {
+          "type": "string",
+          "description": "Lot Status"
+        },
+        "tastingStatus": {
+          "type": "string",
+          "description": "Tasting Status"
+        },
+        "labName": {
+          "type": "string",
+          "description": "Lab Name"
+        },
+        "labStatus": {
+          "type": "string",
+          "description": "Lab Name"
+        }
+
+      }
+    },
+    "TeaPacket": {
+      "type": "object",
+      "properties": {
+        "teaPacketId": {
+          "type": "string",
+          "description": "Tea Packet Id"
+        },
+        "teaLotId": {
+          "type": "string",
+          "description": "Tea Lot Id"
+        },
+        "quantity": {
+          "type": "number",
+          "description": "quantity"
+        },
+       "uom": {
+          "type": "string",
+          "description": "uom"
+        },
+        "status": {
+          "type": "string",
+          "description": "status"
+        },
+        "buyerName": {
+          "type": "string",
+          "description": "buyerName"
+        },
+        "freightNo": {
+          "type": "string",
+          "description": "freightNo"
+        },
+        "logisticsPartnerName": {
+          "type": "string",
+          "description": "logisticsPartnerName"
+        },
+        "indianTarrifCode": {
+          "type": "string",
+          "description": "indianTarrifCode"
+        }
+
+      }
+    },
+    "TeaLotID": {
+      "type": "object",
+      "properties": {
+        "teaLotID": {
+          "type": "string",
+          "description": "Tea Lot ID"
+        }
+      }
+    },
+    "TeaPacketID": {
+      "type": "object",
+      "properties": {
+        "teaPacketID": {
+          "type": "string",
+          "description": "Tea Packet ID"
+        }
+      }
+    },
+    "LabObj": {
+      "type": "object",
+      "properties": {
+        "teaLotID": {
+          "type": "string",
+          "description": "Tea Lot ID"
+        },
+		"labName": {
+          "type": "string",
+          "description": "Lab Name"
+        }
+      }
+    },
+    "LabResultObj": {
+      "type": "object",
+      "properties": {
+        "teaLotID": {
+          "type": "string",
+          "description": "Tea Lot ID"
+        },
+		"certified": {
+          "type": "string",
+          "description": "certified"
+        }
+      }
+    },
+    "TeaTasteObj": {
+      "type": "object",
+      "properties": {
+        "teaLotID": {
+          "type": "string",
+          "description": "Tea Lot ID"
+        },
+		"teaTaster": {
+          "type": "string",
+          "description": "Tea Taster "
+        }
+      }
+    },
+    "TeaTasteResultObj": {
+      "type": "object",
+      "properties": {
+        "teaLotID": {
+          "type": "string",
+          "description": "Tea Lot ID"
+        },
+		"teaTasteNotes": {
+          "type": "string",
+          "description": "Tea Taste Notes"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}

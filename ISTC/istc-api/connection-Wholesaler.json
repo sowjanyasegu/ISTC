@@ -1,0 +1,162 @@
+{
+  "name": "istcc",
+  "x-type": "hlfv1",
+  "x-commitTimeout": 300,
+  "version": "1.0.0",
+  "client": {
+    "organization": "Wholesaler",
+    "connection": {
+      "timeout": {
+        "peer": {
+          "endorser": "300",
+          "eventHub": "300",
+          "eventReg": "300"
+        },
+        "orderer": "300"
+      }
+    }
+  },
+  "channels": {
+    "istcchannel": {
+        "orderers": [
+          "orderer.istc.com"
+        ],
+        "peers": {
+            "peer0.wholesaler.istc.com": {
+            "endorsingPeer": true,
+            "chaincodeQuery": true,
+            "eventSource": true
+          },
+            "peer0.teamaster.istc.com": {
+            "endorsingPeer": true,
+            "chaincodeQuery": true,
+            "eventSource": true
+          },
+            "peer0.istc.istc.com": {
+            "endorsingPeer": true,
+            "chaincodeQuery": true,
+            "eventSource": true
+                  }
+                }
+            }
+        },  
+    "organizations": {      
+
+      "Wholesaler": {
+        "mspid": "WholesalerMSP",
+        "peers": [
+            "peer0.wholesaler.istc.com"
+        ],
+        "certificateAuthorities": [
+          "ca.wholesaler.istc.com"
+        ]
+    },
+
+
+      "TeaMaster": {
+        "mspid": "TeaMasterMSP",
+        "peers": [
+            "peer0.teamaster.istc.com"
+        ],
+        "certificateAuthorities": [
+          "ca.teamaster.istc.com"
+        ]
+    },
+
+
+      "ISTC": {
+        "mspid": "ISTCMSP",
+        "peers": [
+            "peer0.istc.istc.com"
+        ],
+        "certificateAuthorities": [
+          "ca.istc.istc.com"
+        ]
+    }
+      },
+  "orderers":{
+    "orderer.istc.com": {
+      "url": "grpc://10.64.81.117:7050",
+      "grpcOptions": {
+        "ssl-target-name-override": "orderer.istc.com",
+        "grpc.keepalive_time_ms": 600000,
+        "grpc.max_send_message_length": 15728640,
+        "grpc.max_receive_message_length": 15728640
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICNzCCAd6gAwIBAgIRAJNq+hr13n0mwuhA1uxs7lIwCgYIKoZIzj0EAwIwZjEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xETAPBgNVBAoTCGlzdGMuY29tMRcwFQYDVQQDEw50bHNjYS5pc3Rj\nLmNvbTAeFw0yMTAzMTMwNDExMDBaFw0zMTAzMTEwNDExMDBaMGYxCzAJBgNVBAYT\nAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJhbmNpc2Nv\nMREwDwYDVQQKEwhpc3RjLmNvbTEXMBUGA1UEAxMOdGxzY2EuaXN0Yy5jb20wWTAT\nBgcqhkjOPQIBBggqhkjOPQMBBwNCAAQfPmjk+6wIK1RLF4kLDsYDFJ5iOxgvjsDT\n5jiW4xnUANeMQLeUDS/s2KKG8LcV3zIZfKlMwWBihRH5WDY2VsKco20wazAOBgNV\nHQ8BAf8EBAMCAaYwHQYDVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1Ud\nEwEB/wQFMAMBAf8wKQYDVR0OBCIEIKuViRYgPrvTls/yILKYVwx7Tu+AdM1ErKKr\nhwkY/jW7MAoGCCqGSM49BAMCA0cAMEQCIA921iiuULix+WLCy7CFuYGDJyBkcqnv\nlp8B9369U79oAiBYpILJ7YvkO2y113QJYJqYEjvOE9HWvHShI1VQPdDYng==\n-----END CERTIFICATE-----\n"
+      }
+    }
+  },
+  "peers": {
+
+     "peer0.wholesaler.istc.com": {
+      "url": "grpc://10.64.81.117:7051",
+      "eventUrl": "grpc://10.64.81.117:7053",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.wholesaler.istc.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICYzCCAgmgAwIBAgIQD57ORJf5JfMRGqXAVS6GvjAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTd2hvbGVzYWxlci5pc3RjLmNvbTEiMCAGA1UEAxMZ\ndGxzY2Eud2hvbGVzYWxlci5pc3RjLmNvbTAeFw0yMTAzMTMwNDExMDBaFw0zMTAz\nMTEwNDExMDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExN3aG9sZXNhbGVyLmlzdGMu\nY29tMSIwIAYDVQQDExl0bHNjYS53aG9sZXNhbGVyLmlzdGMuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAE71PX40675ilqtnrk1J/74A86JozRt5DSJABjEzzp\noUAXs5hMcmSW7BLkwlqgE7Yw1MkMtJZkE+bGEVbYPF2ALKNtMGswDgYDVR0PAQH/\nBAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8E\nBTADAQH/MCkGA1UdDgQiBCCFCFa47h71Fepq907W417Xp6IPfQD6KPCGnCeIF0Mc\naTAKBggqhkjOPQQDAgNIADBFAiEApXSgxIBF4wRKqKMmyJYRqCDbEZVNftCM6oyk\n6L5uyl0CIHQaHktrTDyz2grXl81D11HNwcyBK/USl/ijEXE1nOdj\n-----END CERTIFICATE-----\n"
+      }
+    },
+
+
+     "peer0.teamaster.istc.com": {
+      "url": "grpc://10.64.81.117:7051",
+      "eventUrl": "grpc://10.64.81.117:7053",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.teamaster.istc.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICYzCCAgmgAwIBAgIQD57ORJf5JfMRGqXAVS6GvjAKBggqhkjOPQQDAjB8MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTd2hvbGVzYWxlci5pc3RjLmNvbTEiMCAGA1UEAxMZ\ndGxzY2Eud2hvbGVzYWxlci5pc3RjLmNvbTAeFw0yMTAzMTMwNDExMDBaFw0zMTAz\nMTEwNDExMDBaMHwxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw\nFAYDVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExN3aG9sZXNhbGVyLmlzdGMu\nY29tMSIwIAYDVQQDExl0bHNjYS53aG9sZXNhbGVyLmlzdGMuY29tMFkwEwYHKoZI\nzj0CAQYIKoZIzj0DAQcDQgAE71PX40675ilqtnrk1J/74A86JozRt5DSJABjEzzp\noUAXs5hMcmSW7BLkwlqgE7Yw1MkMtJZkE+bGEVbYPF2ALKNtMGswDgYDVR0PAQH/\nBAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8E\nBTADAQH/MCkGA1UdDgQiBCCFCFa47h71Fepq907W417Xp6IPfQD6KPCGnCeIF0Mc\naTAKBggqhkjOPQQDAgNIADBFAiEApXSgxIBF4wRKqKMmyJYRqCDbEZVNftCM6oyk\n6L5uyl0CIHQaHktrTDyz2grXl81D11HNwcyBK/USl/ijEXE1nOdj\n-----END CERTIFICATE-----\n"
+      }
+    },
+
+      
+      "peer0.istc.istc.com": {
+      "url": "grpc://10.64.81.117:8051",
+      "eventUrl": "grpc://10.64.81.117:8053",
+      "grpcOptions": {
+        "ssl-target-name-override": "peer0.istc.istc.com",
+        "hostnameOverride": "peer0.istc.istc.com"
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICSzCCAfKgAwIBAgIRAKF6S36n40bdlcYc7q316mswCgYIKoZIzj0EAwIwcDEL\nMAkGA1UEBhMCVVMxEzARBgNVBAgTCkNhbGlmb3JuaWExFjAUBgNVBAcTDVNhbiBG\ncmFuY2lzY28xFjAUBgNVBAoTDWlzdGMuaXN0Yy5jb20xHDAaBgNVBAMTE3Rsc2Nh\nLmlzdGMuaXN0Yy5jb20wHhcNMjEwMzEzMDQxMTAwWhcNMzEwMzExMDQxMTAwWjBw\nMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2Fu\nIEZyYW5jaXNjbzEWMBQGA1UEChMNaXN0Yy5pc3RjLmNvbTEcMBoGA1UEAxMTdGxz\nY2EuaXN0Yy5pc3RjLmNvbTBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG5o1dq+\niXE7faikcbje0LrDpyuIuNF9sl4DjDXZLBZ+vdscBiv23Ydxj8W6q6Up9QW437Ks\n2CAY8f0rNQjAQLyjbTBrMA4GA1UdDwEB/wQEAwIBpjAdBgNVHSUEFjAUBggrBgEF\nBQcDAgYIKwYBBQUHAwEwDwYDVR0TAQH/BAUwAwEB/zApBgNVHQ4EIgQgCsLAN8zd\nTiwaDkC00JDqfkOqV9G6WV+d8boRVp5D/yQwCgYIKoZIzj0EAwIDRwAwRAIgfXZj\nRv1AsZNWz1RWHMoQP/rCyw2whD2BtnRiylgxd8gCIC5S96SN6Sj2RniyEnz6dh0j\nN7V3Ir5U9RpKax0yWZAt\n-----END CERTIFICATE-----\n"
+      }
+    }
+   },
+    "certificateAuthorities":{
+    "ca.wholesaler.istc.com": {
+      "url": "http://10.64.81.117:7054",
+      "caName": "ca.wholesaler.istc.com",
+      "httpOptions": {
+        "verify": false
+      },
+      "tlsCACerts": {
+        "pem":"-----BEGIN CERTIFICATE-----\nMIICXDCCAgOgAwIBAgIQeEjRvpiFa15OvkvSFXs4mzAKBggqhkjOPQQDAjB5MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEcMBoGA1UEChMTd2hvbGVzYWxlci5pc3RjLmNvbTEfMB0GA1UEAxMW\nY2Eud2hvbGVzYWxlci5pc3RjLmNvbTAeFw0yMTAzMTMwNDExMDBaFw0zMTAzMTEw\nNDExMDBaMHkxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYD\nVQQHEw1TYW4gRnJhbmNpc2NvMRwwGgYDVQQKExN3aG9sZXNhbGVyLmlzdGMuY29t\nMR8wHQYDVQQDExZjYS53aG9sZXNhbGVyLmlzdGMuY29tMFkwEwYHKoZIzj0CAQYI\nKoZIzj0DAQcDQgAEF6d6b66xHIMFOgPmZvwwdaAPm5hoOcmOzQJ9L39C8hGh14+X\nga2DOYuuu12is2vdaxYVvQKGxo0NBaqwqeEs6KNtMGswDgYDVR0PAQH/BAQDAgGm\nMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggrBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/\nMCkGA1UdDgQiBCCemAxXPnyy5tyKrRS7NEkAW4+EmjKgi0sSRqhgbXUz7jAKBggq\nhkjOPQQDAgNHADBEAiBlw7/pGBg00rgeecFehUxajTy6dC65ne8hnP5wChVuswIg\nVnO5tuYpOAp5iuyuF259vVgAs8q0WFr+Jtn6k2KqXeE=\n-----END CERTIFICATE-----\n"
+      }
+    },
+    "ca.teamaster.istc.com": {
+      "url": "http://10.64.81.117:8054",
+      "caName": "ca.teamaster.istc.com",
+      "httpOptions": {
+        "verify": false
+      },
+      "tlsCACerts": {
+        "pem":"-----BEGIN CERTIFICATE-----\nMIICWTCCAf+gAwIBAgIQJmOn9yLgxRl44ckm9MFdWjAKBggqhkjOPQQDAjB3MQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEbMBkGA1UEChMSdGVhbWFzdGVyLmlzdGMuY29tMR4wHAYDVQQDExVj\nYS50ZWFtYXN0ZXIuaXN0Yy5jb20wHhcNMjEwMzEzMDQxMTAwWhcNMzEwMzExMDQx\nMTAwWjB3MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UE\nBxMNU2FuIEZyYW5jaXNjbzEbMBkGA1UEChMSdGVhbWFzdGVyLmlzdGMuY29tMR4w\nHAYDVQQDExVjYS50ZWFtYXN0ZXIuaXN0Yy5jb20wWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAAQ3itQGRrdl3GP/3Kz+qSBebEIVqIHYHZHJ1F8CVeDZbuLtlQMDh66k\nUm23xqCwS6eDIXbfkjDonNMIPvKxdg+To20wazAOBgNVHQ8BAf8EBAMCAaYwHQYD\nVR0lBBYwFAYIKwYBBQUHAwIGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wKQYD\nVR0OBCIEIB2ZCyQhuXqxr/FoOsaZGqGOIozpqMecaILRuFUvivI8MAoGCCqGSM49\nBAMCA0gAMEUCIQCTkTL43OpN+ZPfa7YIl+u7EANLMgvfrO8gilu8lKZxOgIgHSOW\nmSaHeafO9kucCgufeOsJt7OnSmcutZOopgz6uCg=\n-----END CERTIFICATE-----\n"
+      }
+    },
+    "ca.istc.istc.com": {
+      "url": "http://10.64.81.117:9054",
+      "caName": "ca.istc.istc.com",
+      "httpOptions": {
+        "verify": false
+      },
+      "tlsCACerts": {
+        "pem": "-----BEGIN CERTIFICATE-----\nMIICRTCCAeugAwIBAgIQUEnr9ykIJXjFhGISX4cifDAKBggqhkjOPQQDAjBtMQsw\nCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZy\nYW5jaXNjbzEWMBQGA1UEChMNaXN0Yy5pc3RjLmNvbTEZMBcGA1UEAxMQY2EuaXN0\nYy5pc3RjLmNvbTAeFw0yMTAzMTMwNDExMDBaFw0zMTAzMTEwNDExMDBaMG0xCzAJ\nBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1TYW4gRnJh\nbmNpc2NvMRYwFAYDVQQKEw1pc3RjLmlzdGMuY29tMRkwFwYDVQQDExBjYS5pc3Rj\nLmlzdGMuY29tMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEqjS04bgcYXKtslao\nFzmZe2TvLcOwwgNHcQ69M1BZs5E/mWgcY62vwy2UzbcnLlO6dsbbQVN2etUshoPt\nl3YxH6NtMGswDgYDVR0PAQH/BAQDAgGmMB0GA1UdJQQWMBQGCCsGAQUFBwMCBggr\nBgEFBQcDATAPBgNVHRMBAf8EBTADAQH/MCkGA1UdDgQiBCCz66XN2mjJJ0rO/sZ8\noXJ+1QFtJ8KkIlAz6Rxk/9FY9TAKBggqhkjOPQQDAgNIADBFAiEAkU9qjsE3fVzx\nCQKx0Kcd5QG1gtVtx+ceG7bj344WZEYCIB42GLp8Lk1ioqbvEBePRo4+xMe+OKZh\nvj4G7hBYLey5\n-----END CERTIFICATE-----\n"
+      }
+    }
+    }
+    }
+    
